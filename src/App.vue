@@ -2,29 +2,36 @@
   <div id="app">
     <div id="nav">
 
-      <v-toolbar dark color="primary">
-        <v-toolbar-side-icon></v-toolbar-side-icon>
+      <!--navbar-->
+      <b-navbar variant="primary" dark>
+        <b-navbar-brand href="#">Rekindle </b-navbar-brand>
 
-        <!--normally the logo would go here-->
-        <v-toolbar-title class="logo">Rekindle</v-toolbar-title>
+        <!--not entirely sure what a b-collapse is-->
+        <b-collapse id="nav-collapse" is-nav>
+          <b-navbar-nav>
+            <b-nav-item href="#" class="nav-items">home</b-nav-item>
+            <b-nav-item href="#" class="nav-items">browse</b-nav-item>
+            <b-nav-item href="#" class="nav-items">random</b-nav-item>
+          </b-navbar-nav>
 
-        <v-toolbar-title>home</v-toolbar-title>
-        <v-toolbar-title>browse</v-toolbar-title>
-        <v-toolbar-title>random</v-toolbar-title>
+          <!-- Right aligned nav items -->
+          <b-navbar-nav class="ml-auto">
 
-        <v-spacer></v-spacer>
+            <b-nav-item-dropdown right>
+              <!-- Using 'button-content' slot -->
+              <template slot="button-content">User</template>
+              <b-dropdown-item href="#">Profile</b-dropdown-item>
+              <b-dropdown-item href="#">Sign Out</b-dropdown-item>
+            </b-nav-item-dropdown>
+          </b-navbar-nav>
+        </b-collapse>
+      </b-navbar>
 
-        <v-btn icon>
-          <v-icon>search</v-icon>
-        </v-btn>
-
-        <v-toolbar-title>ikechukwu</v-toolbar-title>
-        <v-btn round color="primary" dark> new </v-btn>
-
-      </v-toolbar>
-
+      <!--leave as an example as to how to route stuff-->
       <router-link to="/">Home</router-link> |
       <router-link to="/new">New</router-link>
+
+
 
 
 
@@ -39,7 +46,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  background-color: antiquewhite;
 }
 #nav {
   padding: 30px;

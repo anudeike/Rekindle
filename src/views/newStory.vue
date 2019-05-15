@@ -1,21 +1,62 @@
 <template>
   <div class="about">
+    <div id="picture input">
 
-    <!--contains the main content that the user will type and submit their stuff into-->
-    <div class="content">
-      <v-form ref="form">
-        <v-text-field v-model="model" label="Title"></v-text-field>
-      </v-form>
-
-      <v-textarea name="input-7-1" label="Default style" value="nigga" hint="Hint text"></v-textarea>
     </div>
+    <!--contains the main content that the user will type and submit their stuff into-->
+   <b-container>
 
+     <!--must keep stuff in a row-->
+     <b-row>
+
+       <!--this is the content side-->
+       <b-col>
+         <b-card>
+           <div id="content">
+
+             <b-form-input id="title" size="lg" v-model="post.title" required placeholder="a creative title"></b-form-input>
+
+             <b-form-textarea id="textarea" size="lg" v-model="post.content" placeholder="start your story here"></b-form-textarea>
+           </div>
+         </b-card>
+       </b-col>
+
+       <!--this is the preview side-->
+       <b-col>
+         <b-card>
+           <b-card-title> {{ post.title }}</b-card-title>
+           <b-card-text> {{ post.content }}</b-card-text>
+         </b-card>
+       </b-col>
+
+     </b-row>
+   </b-container>
   </div>
 </template>
 
 <style scoped>
-  .content{
-    margin: 20px;
-
+  #textarea{
+    border: none;
+    border-radius: 0;
+  }
+  #title{
+    border: none;
+    border-radius: 0;
   }
 </style>
+
+<script>
+  export default{
+    //name: newStory,
+    data () {
+      return {
+        post: {
+          title: "",
+          content: ""
+        }
+      }
+    }
+
+  }
+</script>
+
