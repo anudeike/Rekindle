@@ -9,7 +9,7 @@
         <!--not entirely sure what a b-collapse is-->
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav>
-            <b-nav-item href="#" class="nav-items">home</b-nav-item>
+            <b-nav-item href="#" class="nav-items" to="/">home</b-nav-item>
             <b-nav-item href="#" class="nav-items">browse</b-nav-item>
             <b-nav-item href="#" class="nav-items">random</b-nav-item>
           </b-navbar-nav>
@@ -46,7 +46,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  background-color: antiquewhite;
+  background-color: #343a40;
 }
 #nav {
   padding: 30px;

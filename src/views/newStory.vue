@@ -11,7 +11,7 @@
 
        <!--this is the content side-->
        <b-col>
-         <b-card>
+         <b-card bg-variant="dark">
            <div id="content">
 
              <b-form-input id="title" size="lg" v-model="post.title" required placeholder="a creative title"></b-form-input>
@@ -22,12 +22,12 @@
        </b-col>
 
        <!--this is the preview side-->
-       <b-col>
-         <b-card>
-           <b-card-title> {{ post.title }}</b-card-title>
-           <b-card-text> {{ post.content }}</b-card-text>
-         </b-card>
-       </b-col>
+       <!--<b-col>-->
+         <!--<b-card>-->
+           <!--<b-card-title> {{ post.title }}</b-card-title>-->
+           <!--<b-card-text> {{ post.content }}</b-card-text>-->
+         <!--</b-card>-->
+       <!--</b-col>-->
 
      </b-row>
    </b-container>
@@ -38,10 +38,18 @@
   #textarea{
     border: none;
     border-radius: 0;
+    background-color: #343a40;
   }
+
   #title{
     border: none;
     border-radius: 0;
+    background-color: #343a40;
+  }
+
+  b-card{
+    background-color: #343a40;
+    border: none;
   }
 </style>
 
