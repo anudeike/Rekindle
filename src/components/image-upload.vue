@@ -6,7 +6,7 @@
         </div>
 
         <!--image input - style is hidden and assigned a ref so it can be triggered-->
-        <input type="file" ref="file" :name="uploadFieldName" @change="onFileChange($event.target.name, $event.target.files)" style="display: none;">
+        <input type="file" ref="file" :name="uploadFieldName" @change="onFileChange($event.target.name, $event.target.files)" style="display: none;" v-if="count < 1">
 
         <!--any errors?-->
         <v-dialog v-model="errorDialog" max-width="300">
@@ -29,7 +29,8 @@
             errorDialog: null,
             errorText: '',
             uploadFieldName: 'file',
-            maxSize: 1024
+            maxSize: 1024,
+            count: 0
         }),
 
         props: {
@@ -57,6 +58,8 @@
                         this.errorText = 'Your file is too big! Please select an image under 1MB';
                     } else {
                         // Append file into FormData & turn file into image URL
+                        this.count++; //add one to the count
+                        console.log(this.count);
                         let formData = new FormData();
                         let imageURL = URL.createObjectURL(imageFile);
                         formData.append(fieldName, imageFile);
