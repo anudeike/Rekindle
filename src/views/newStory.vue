@@ -1,8 +1,25 @@
 <template>
   <div class="about">
-    <div id="picture input">
 
-    </div>
+    <!--this will handle the input of the file-->
+    <v-container grid-list-xl>
+      <image-input v-model="cover">
+        <div slot="activator">
+          <v-avatar size="150px" v-ripple v-if="!cover" class="grey lighten-3 mb-3">
+            <span>Click to add avatar</span>
+          </v-avatar>
+          <v-avatar size="150px" v-ripple v-else class="mb-3">
+            <img :src="cover.imageURL" alt="avatar">
+          </v-avatar>
+        </div>
+      </image-input>
+      <v-slide-x-transition>
+        <div v-if="cover && saved == false">
+          <v-btn class="primary" @click="uploadImage" :loading="saving">Save Avatar</v-btn>
+        </div>
+      </v-slide-x-transition>
+    </v-container>
+
     <!--contains the main content that the user will type and submit their stuff into-->
    <b-container>
 
@@ -12,13 +29,23 @@
        <!--this is the content side-->
        <b-col>
          <b-card bg-variant="dark">
-           <div id="content">
+           <image-input v-model="cover">
+             <div slot="activator">
+               <b-img src="https://placekitten.com/1000/300" size="150px" v-if="!cover" class="grey lighten-3 mb-3">
+                 <span>Click to add avatar</span>
+               </b-img>
+               <v-avatar size="150px" v-else class="mb-3">
+                 <img :src="cover.imageURL" alt="avatar">
+               </v-avatar>
+             </div>
+           </image-input>
+         <div id="content">
 
-             <b-form-input id="title" size="lg" v-model="post.title" required placeholder="a creative title"></b-form-input>
+           <b-form-input id="title" size="lg" v-model="post.title" required placeholder="a creative title" ></b-form-input>
 
-             <b-form-textarea id="textarea" size="lg" v-model="post.content" placeholder="start your story here"></b-form-textarea>
-           </div>
-         </b-card>
+           <b-form-textarea id="textarea" size="lg" v-model="post.content" placeholder="start your story here"></b-form-textarea>
+         </div>
+       </b-card>
        </b-col>
 
        <!--this is the preview side-->
@@ -39,29 +66,64 @@
     border: none;
     border-radius: 0;
     background-color: #343a40;
+    color: whitesmoke;
+    font-family: "Gravity", "SansSerif", "Roboto", SansSerif, serif;
+    font-size: 18px;
+    box-shadow: none;
   }
 
   #title{
     border: none;
     border-radius: 0;
     background-color: #343a40;
+    color: whitesmoke;
+    font-size: 24px;
+
+    /*gets rid of the annoying glow*/
+    box-shadow: none;
   }
 
   b-card{
-    background-color: #343a40;
+    background-color: transparent;
     border: none;
   }
 </style>
 
 <script>
+  import ImageInput from '../components/image-upload.vue'
   export default{
-    //name: newStory,
+    name: 'newStory',
     data () {
       return {
+        cover: null,
+        saving: false,
+        saved: false,
         post: {
           title: "",
           content: ""
         }
+      }
+    },
+    components: {
+      ImageInput: ImageInput,
+    },
+    watch: {
+      cover: {
+        handler: function () {
+          this.saved = false;
+        },
+        deep: true
+      }
+    },
+
+    methods: {
+      uploadImage() {
+        this.saving = true;
+        setTimeout(() => this.savedAvatar(), 1000);
+      },
+      savedAvatar() {
+        this.saving = false;
+        this.saved = true;
       }
     }
 
