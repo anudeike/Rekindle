@@ -1,5 +1,9 @@
 # rekindle
 
+Made with VueJS. 
+
+Rekindle is a short story web application that allows you to post your own stories and share your creativity with your friends.
+
 ## Project setup
 ```
 npm install
