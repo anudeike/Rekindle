@@ -6,7 +6,7 @@
         </div>
 
         <!--image input - style is hidden and assigned a ref so it can be triggered-->
-        <input type="file" ref="file" :name="uploadFieldName" @change="onFileChange($event.target.name, $event.target.files)" style="display: none;" v-if="count < 1">
+        <input type="file" ref="file" :name="uploadFieldName" @change="onFileChange($event.target.name, $event.target.files)" style="display: none;">
 
         <!--any errors?-->
         <v-dialog v-model="errorDialog" max-width="300">
@@ -57,8 +57,7 @@
                         this.errorDialog = true;
                         this.errorText = 'Your file is too big! Please select an image under 1MB';
                     } else {
-                        // Append file into FormData & turn file into image URL
-                        this.count++; //add one to the count
+                        // Append file into FormData & turn file into image UR
                         console.log(this.count);
                         let formData = new FormData();
                         let imageURL = URL.createObjectURL(imageFile);

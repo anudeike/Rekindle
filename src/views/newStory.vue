@@ -1,5 +1,25 @@
 <template>
   <div class="about">
+
+    <!--this will handle the input of the file-->
+    <!--<v-container grid-list-xl>-->
+      <!--<image-input v-model="cover">-->
+        <!--<div slot="activator">-->
+          <!--<v-avatar size="150px" v-ripple v-if="!cover" class="grey lighten-3 mb-3">-->
+            <!--<span>Click to add avatar</span>-->
+          <!--</v-avatar>-->
+          <!--<v-avatar size="150px" v-ripple v-else class="mb-3">-->
+            <!--<img :src="cover.imageURL" alt="avatar">-->
+          <!--</v-avatar>-->
+        <!--</div>-->
+      <!--</image-input>-->
+      <!--<v-slide-x-transition>-->
+        <!--<div v-if="cover && saved == false">-->
+          <!--<v-btn class="primary" @click="uploadImage" :loading="saving">Save Avatar</v-btn>-->
+        <!--</div>-->
+      <!--</v-slide-x-transition>-->
+    <!--</v-container>-->
+
     <!--contains the main content that the user will type and submit their stuff into-->
    <b-container>
 
@@ -10,44 +30,37 @@
        <b-col>
          <image-input v-model="cover">
            <div slot="activator">
-             <b-card img-src="https://via.placeholder.com/1080x100" v-if="!cover" bg-variant="dark">
-
-               <div id="content">
-
-                 <b-form-input id="title" size="lg" v-model="post.title" required placeholder="a creative title" ></b-form-input>
-
-                 <b-form-textarea id="textarea" size="lg" v-model="post.content" placeholder="start your story here"></b-form-textarea>
-               </div>
-             </b-card>
-             <b-card :img-src="cover.imageURL" v-else bg-variant="dark">
-
-               <div id="content">
-
-                 <b-form-input id="title" size="lg" v-model="post.title" required placeholder="a creative title" ></b-form-input>
-
-                 <b-form-textarea id="textarea" size="lg" v-model="post.content" placeholder="start your story here"></b-form-textarea>
-               </div>
-             </b-card>
-             <!--<b-img src="https://via.placeholder.com/1080x100" size="150px" v-if="!cover" class="grey lighten-3 mb-3">-->
-               <!--<span>Click to add avatar</span>-->
-             <!--</b-img>-->
+             <b-img src="https://via.placeholder.com/1080x100" size="150px" v-if="!cover" class="grey lighten-3 mb-3">
+               <span>Click to add avatar</span>
+             </b-img>
              <!--<b-img :src="cover.imageURL" v-else class="grey lighten-3 mb-3">-->
                <!--<span>Click to add avatar</span>-->
              <!--</b-img>-->
-             <!--<v-avatar size="150px" v-else class="mb-3">-->
-             <!--<img :src="cover.imageURL" alt="avatar">-->
-             <!--</v-avatar>-->
+             <b-button block variant="dark" v-if="cover" style="margin: 20px 0px 20px 0px;">Choose Another File</b-button>
+
+
            </div>
          </image-input>
+         <b-card :img-src="cover.imageURL" v-if="cover" bg-variant="dark">
+
+           <div id="content">
+
+             <b-form-input id="title" size="lg" v-model="post.title" required placeholder="a creative title" ></b-form-input>
+
+             <b-form-textarea id="textarea" size="lg" v-model="post.content" placeholder="start your story here"></b-form-textarea>
+           </div>
+         </b-card>
+         <b-card v-else  bg-variant="dark">
+
+          <div id="content">
+
+            <b-form-input id="title" size="lg" v-model="post.title" required placeholder="a creative title" ></b-form-input>
+
+            <b-form-textarea id="textarea" size="lg" v-model="post.content" placeholder="start your story here"></b-form-textarea>
+          </div>
+        </b-card>
        </b-col>
 
-       <!--this is the preview side-->
-       <!--<b-col>-->
-         <!--<b-card>-->
-           <!--<b-card-title> {{ post.title }}</b-card-title>-->
-           <!--<b-card-text> {{ post.content }}</b-card-text>-->
-         <!--</b-card>-->
-       <!--</b-col>-->
 
      </b-row>
    </b-container>
@@ -78,7 +91,6 @@
 
   b-card{
     background-color: transparent;
-    border: none;
   }
 </style>
 
