@@ -45,24 +45,25 @@
 
            <div id="content">
 
-             <b-form-input id="title" size="lg" v-model="post.title" required placeholder="a creative title" ></b-form-input>
+             <b-form-input id="title" size="lg" v-model="story.title" required placeholder="a creative title" ></b-form-input>
 
-             <b-form-textarea id="textarea" size="lg" v-model="post.content" placeholder="start your story here"></b-form-textarea>
+             <b-form-textarea id="textarea" size="lg" v-model="story.content" placeholder="start your story here"></b-form-textarea>
            </div>
          </b-card>
          <b-card v-else  bg-variant="dark">
 
           <div id="content">
 
-            <b-form-input id="title" size="lg" v-model="post.title" required placeholder="a creative title" ></b-form-input>
+            <b-form-input id="title" size="lg" v-model="story.title" required placeholder="a creative title" ></b-form-input>
 
-            <b-form-textarea id="textarea" size="lg" v-model="post.content" placeholder="start your story here"></b-form-textarea>
+            <b-form-textarea id="textarea" size="lg" v-model="story.content" placeholder="start your story here"></b-form-textarea>
           </div>
         </b-card>
        </b-col>
 
 
      </b-row>
+     <b-button @click="postToDatabase()" style="margin-top: 25px;" v-if="cover"> SUBMIT </b-button>
    </b-container>
   </div>
 </template>
@@ -100,12 +101,14 @@
     name: 'newStory',
     data () {
       return {
+        submitted: false,
         cover: null,
         saving: false,
         saved: false,
-        post: {
+        story: {
           title: "",
-          content: ""
+          content: "",
+          img: this.cover
         }
       }
     },
@@ -129,6 +132,11 @@
       savedAvatar() {
         this.saving = false;
         this.saved = true;
+      },
+      postToDatabase: function () {
+        this.$http.post('https://rekindle-f3fdc.firebaseio.com/posts.json', this.story).then(function(data){
+          this.submitted = true;
+        });
       }
     }
 
