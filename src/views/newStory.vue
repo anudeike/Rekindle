@@ -1,25 +1,6 @@
 <template>
   <div class="about">
 
-    <!--this will handle the input of the file-->
-    <!--<v-container grid-list-xl>-->
-      <!--<image-input v-model="cover">-->
-        <!--<div slot="activator">-->
-          <!--<v-avatar size="150px" v-ripple v-if="!cover" class="grey lighten-3 mb-3">-->
-            <!--<span>Click to add avatar</span>-->
-          <!--</v-avatar>-->
-          <!--<v-avatar size="150px" v-ripple v-else class="mb-3">-->
-            <!--<img :src="cover.imageURL" alt="avatar">-->
-          <!--</v-avatar>-->
-        <!--</div>-->
-      <!--</image-input>-->
-      <!--<v-slide-x-transition>-->
-        <!--<div v-if="cover && saved == false">-->
-          <!--<v-btn class="primary" @click="uploadImage" :loading="saving">Save Avatar</v-btn>-->
-        <!--</div>-->
-      <!--</v-slide-x-transition>-->
-    <!--</v-container>-->
-
     <!--contains the main content that the user will type and submit their stuff into-->
    <b-container>
 

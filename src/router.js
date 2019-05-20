@@ -2,7 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
 import newStory from "./views/newStory.vue";
-
+import Login from "./components/login";
 Vue.use(Router);
 
 export default new Router({
@@ -19,6 +19,12 @@ export default new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: newStory
+    },
+    {
+      path: "/login",
+      name: 'Login',
+      component: Login
     }
+
   ]
 });
