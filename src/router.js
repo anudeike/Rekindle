@@ -3,6 +3,7 @@ import Router from "vue-router";
 import Home from "./views/Home.vue";
 import newStory from "./views/newStory.vue";
 import Login from "./components/login";
+import signup from "./components/signup";
 Vue.use(Router);
 
 export default new Router({
@@ -10,7 +11,8 @@ export default new Router({
     {
       path: "/",
       name: "home",
-      component: Home
+      component: Home,
+      alias: '/home'
     },
     {
       path: "/new",
@@ -24,6 +26,11 @@ export default new Router({
       path: "/login",
       name: 'Login',
       component: Login
+    },
+    {
+      path: "/signup",
+      name: 'signup',
+      component: signup
     }
 
   ]

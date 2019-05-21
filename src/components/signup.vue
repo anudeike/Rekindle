@@ -2,14 +2,14 @@
     <div class="outer">
         <div class="middle">
             <div class="inner">
-                <h1>log into rekindle</h1>
+                <h1>sign into rekindle</h1>
+                <input type="email" placeholder="email"><br>
                 <input type="text" placeholder="username"><br>
                 <input type="password" placeholder="username"><br>
                 <input type="password" placeholder="password"><br>
 
-                <b-button class="submit" @click="login">submit</b-button>
-
-                <p>Don't have an account yet? Click <router-link to="/signup">here</router-link> to create one</p>
+                <b-button class="submit">submit</b-button>
+                <p>already have an account? Click <router-link to="/login">here</router-link> to log in.</p>
             </div>
         </div>
     </div>
@@ -17,17 +17,7 @@
 
 <script>
     export default {
-        name: "login",
-        data() {
-            return {
-
-            }
-        },
-        methods: {
-            login: function (){
-                this.$router.replace('home');
-            }
-        }
+        name: "signup"
     }
 </script>
 
@@ -66,13 +56,15 @@
         color: whitesmoke;
     }
 
-    p{
-        color: whitesmoke;
-        margin-top: 30px;
-    }
-
     .submit{
         padding: 7px 100px 7px 100px;
     }
 
+    p{
+        color: whitesmoke;
+        margin-top: 30px;
+    }
+    *:focus{
+        outline: none;
+    }
 </style>
