@@ -20,11 +20,20 @@
         name: "login",
         data() {
             return {
-
+                email: "",
+                password: ""
             }
         },
         methods: {
             login: function (){
+                firebase.auth().signInWithEmailAndPassword(tihs.email, this.password).then(
+                  function(user){
+                      alert('You are now logged in')
+                  },
+                  function(err){
+                      alert('Oops. ' + err.message)
+                  }
+                );
                 this.$router.replace('home');
             }
         }
