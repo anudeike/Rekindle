@@ -3,12 +3,12 @@
         <div class="middle">
             <div class="inner">
                 <h1>sign into rekindle</h1>
-                <input type="email" placeholder="email"><br>
+                <input type="email" v-model="email" placeholder="email"><br>
                 <input type="text" placeholder="username"><br>
-                <input type="password" placeholder="username"><br>
-                <input type="password" placeholder="password"><br>
+                <input type="password" v-model="password" placeholder="password"><br>
+                <!--will add some type of comfirm password but could complicate things-->
 
-                <b-button class="submit">submit</b-button>
+                <b-button class="submit" @click="signUp">submit</b-button>
                 <p>already have an account? Click <router-link to="/login">here</router-link> to log in.</p>
             </div>
         </div>
@@ -16,8 +16,28 @@
 </template>
 
 <script>
+    import firebase from 'firebase';
     export default {
-        name: "signup"
+        name: "signup",
+        data(){
+            return{
+                email: "",
+                password: ""
+            }
+        },
+        methods: {
+            signUp: function(){
+                //should set up the authentication - uses a javascript promise
+                firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
+                    function (user){
+                        alert('Your account has been created!')
+                    },
+                    function (err){
+                        alert('Oops.' + err.message)
+                    }
+                );
+            }
+        }
     }
 </script>
 

@@ -2,11 +2,12 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import Vuetify from "vuetify";
-import BootstrapVue from 'bootstrap-vue'
-import VueResource from "vue-resource"
+import BootstrapVue from 'bootstrap-vue';
+import VueResource from "vue-resource";
 import 'vuetify/dist/vuetify.min.css';
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
+import Firebase from "firebase";
 
 Vue.config.productionTip = false;
 
@@ -24,11 +25,13 @@ var firebaseConfig = {
 };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+Firebase.initializeApp(firebaseConfig);
 
 Vue.use(BootstrapVue);
 Vue.use(Vuetify);
 Vue.use(VueResource);
+Vue.use(Firebase);
+
 new Vue({
   router,
   render: h => h(App)
