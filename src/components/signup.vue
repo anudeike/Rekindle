@@ -2,9 +2,8 @@
     <div class="outer">
         <div class="middle">
             <div class="inner">
-                <h1>sign into rekindle</h1>
+                <h1>sign up for rekindle</h1>
                 <input type="email" v-model="email" placeholder="email"><br>
-                <input type="text" placeholder="username"><br>
                 <input type="password" v-model="password" placeholder="password"><br>
                 <!--will add some type of comfirm password but could complicate things-->
 
@@ -29,10 +28,10 @@
             signUp: function(){
                 //should set up the authentication - uses a javascript promise
                 firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
-                    function (user){
-                        alert('Your account has been created!')
+                    (user) => {
+                        this.$router.replace('home');
                     },
-                    function (err){
+                    (err) => {
                         alert('Oops.' + err.message)
                     }
                 );

@@ -11,6 +11,7 @@ import Firebase from "firebase";
 
 Vue.config.productionTip = false;
 
+let app = '';
 //firebase config
 // Your web app's Firebase configuration - in production make sure to get rid of this and put
 //in a process file or some security file
@@ -26,6 +27,16 @@ var firebaseConfig = {
 
 // Initialize Firebase
 Firebase.initializeApp(firebaseConfig);
+
+//on auth state changed
+Firebase.auth().onAuthStateChanged(() => {
+  if(!app){
+    app = new Vue({
+      router,
+      render: h => h(App)
+    }).$mount('#app');
+  }
+});
 
 Vue.use(BootstrapVue);
 Vue.use(Vuetify);

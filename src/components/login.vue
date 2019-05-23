@@ -3,9 +3,8 @@
         <div class="middle">
             <div class="inner">
                 <h1>log into rekindle</h1>
-                <input type="text" placeholder="username"><br>
-                <input type="password" placeholder="username"><br>
-                <input type="password" placeholder="password"><br>
+                <input type="text" placeholder="email" v-model="email"><br>
+                <input type="text" placeholder="password" v-model="password"><br>
 
                 <b-button class="submit" @click="login">submit</b-button>
 
@@ -16,6 +15,7 @@
 </template>
 
 <script>
+    import firebase from 'firebase';
     export default {
         name: "login",
         data() {
@@ -27,13 +27,14 @@
         methods: {
             login: function (){
                 firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
-                  function(user){
-                      alert('You are now logged in')
+                  (user) => {
+                      this.$router.replace('home')
                   },
-                  function(err){
+                   (err) => {
                       alert('Oops. ' + err.message)
                   }
                 );
+                //go to the home route once you have entered in everything
                 this.$router.replace('home');
             }
         }

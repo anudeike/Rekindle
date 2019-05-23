@@ -1,42 +1,42 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <!--<div id="nav">-->
 
-      <!--navbar-->
-      <b-navbar variant="primary" dark>
-        <b-navbar-brand href="#">Rekindle </b-navbar-brand>
+      <!--&lt;!&ndash;navbar&ndash;&gt;-->
+      <!--<b-navbar variant="primary" dark>-->
+        <!--<b-navbar-brand href="#">Rekindle </b-navbar-brand>-->
 
-        <!--not entirely sure what a b-collapse is-->
-        <b-collapse id="nav-collapse" is-nav>
-          <b-navbar-nav>
-            <b-nav-item href="#" class="nav-items" to="/">home</b-nav-item>
-            <b-nav-item href="#" class="nav-items">browse</b-nav-item>
-            <b-nav-item href="#" class="nav-items">random</b-nav-item>
-          </b-navbar-nav>
+        <!--&lt;!&ndash;not entirely sure what a b-collapse is&ndash;&gt;-->
+        <!--<b-collapse id="nav-collapse" is-nav>-->
+          <!--<b-navbar-nav>-->
+            <!--<b-nav-item href="#" class="nav-items" to="/">home</b-nav-item>-->
+            <!--<b-nav-item href="#" class="nav-items">browse</b-nav-item>-->
+            <!--<b-nav-item href="#" class="nav-items">random</b-nav-item>-->
+          <!--</b-navbar-nav>-->
 
-          <!-- Right aligned nav items -->
-          <b-navbar-nav class="ml-auto">
+          <!--&lt;!&ndash; Right aligned nav items &ndash;&gt;-->
+          <!--&lt;!&ndash;<b-navbar-nav class="ml-auto">&ndash;&gt;-->
 
-            <b-nav-item-dropdown right>
-              <!-- Using 'button-content' slot -->
-              <template slot="button-content">Username</template>
-              <b-dropdown-item href="#">Profile</b-dropdown-item>
-              <b-dropdown-item href="#">Sign Out</b-dropdown-item>
-              <b-dropdown-item href="#"><router-link id="newLink" to="/new">New Story</router-link></b-dropdown-item>
-            </b-nav-item-dropdown>
-          </b-navbar-nav>
-        </b-collapse>
-      </b-navbar>
+            <!--&lt;!&ndash;<b-nav-item-dropdown right>&ndash;&gt;-->
+              <!--&lt;!&ndash;&lt;!&ndash; Using 'button-content' slot &ndash;&gt;&ndash;&gt;-->
+              <!--&lt;!&ndash;<template slot="button-content">Username</template>&ndash;&gt;-->
+              <!--&lt;!&ndash;<b-dropdown-item href="#">Profile</b-dropdown-item>&ndash;&gt;-->
+              <!--&lt;!&ndash;<b-dropdown-item href="#">Sign Out</b-dropdown-item>&ndash;&gt;-->
+              <!--&lt;!&ndash;<b-dropdown-item href="#"><router-link id="newLink" to="/new">New Story</router-link></b-dropdown-item>&ndash;&gt;-->
+            <!--&lt;!&ndash;</b-nav-item-dropdown>&ndash;&gt;-->
+          <!--&lt;!&ndash;</b-navbar-nav>&ndash;&gt;-->
+        <!--</b-collapse>-->
+      <!--</b-navbar>-->
 
-      <!--&lt;!&ndash;leave as an example as to how to route stuff&ndash;&gt;-->
-      <!--<router-link to="/">Home</router-link> |-->
-      <!--<router-link to="/new">New</router-link>-->
-
-
+      <!--&lt;!&ndash;&lt;!&ndash;leave as an example as to how to route stuff&ndash;&gt;&ndash;&gt;-->
+      <!--&lt;!&ndash;<router-link to="/">Home</router-link> |&ndash;&gt;-->
+      <!--&lt;!&ndash;<router-link to="/new">New</router-link>&ndash;&gt;-->
 
 
 
-    </div>
+
+
+    <!--</div>-->
     <router-view />
   </div>
 </template>
