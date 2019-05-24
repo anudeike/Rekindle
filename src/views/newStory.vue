@@ -1,6 +1,5 @@
 <template>
   <div class="about">
-
     <!--contains the main content that the user will type and submit their stuff into-->
    <b-container>
 
@@ -78,6 +77,7 @@
 
 <script>
   import ImageInput from '../components/image-upload.vue'
+  import navbar from "../components/navbar";
   export default{
     name: 'newStory',
     data () {
@@ -95,6 +95,7 @@
     },
     components: {
       ImageInput: ImageInput,
+      navbar: navbar
     },
     watch: {
       cover: {

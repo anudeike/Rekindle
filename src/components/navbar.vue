@@ -1,46 +1,76 @@
 <template>
-    <b-navbar toggleable="lg" type="dark" variant="info">
-        <b-navbar-brand href="#">NavBar</b-navbar-brand>
+    <div id="main">
+        <b-navbar class="navigation-bar" dark>
+            <b-navbar-brand href="#">Rekindle </b-navbar-brand>
 
-        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+            <!--not entirely sure what a b-collapse is-->
+            <b-collapse id="nav-collapse" is-nav>
+                <b-navbar-nav>
+                    <b-nav-item href="#"><span class="nav-items" @click="toHome">home</span></b-nav-item>
+                    <b-nav-item href="#"><span class="nav-items">browse</span></b-nav-item>
+                    <b-nav-item href="#"><span class="nav-items">random</span></b-nav-item>
+                </b-navbar-nav>
 
-        <b-collapse id="nav-collapse" is-nav>
-            <b-navbar-nav>
-                <b-nav-item href="#">Link</b-nav-item>
-                <b-nav-item href="#" disabled>Disabled</b-nav-item>
-            </b-navbar-nav>
+                <b-navbar-nav class="ml-auto">
+                    <button class="new-btn" @click="navToNewStory">new story</button>
+                </b-navbar-nav>
+            </b-collapse>
+        </b-navbar>
 
-            <!-- Right aligned nav items -->
-            <b-navbar-nav class="ml-auto">
-                <b-nav-form>
-                    <b-form-input size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>
-                    <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
-                </b-nav-form>
-
-                <b-nav-item-dropdown text="Lang" right>
-                    <b-dropdown-item href="#">EN</b-dropdown-item>
-                    <b-dropdown-item href="#">ES</b-dropdown-item>
-                    <b-dropdown-item href="#">RU</b-dropdown-item>
-                    <b-dropdown-item href="#">FA</b-dropdown-item>
-                </b-nav-item-dropdown>
-
-                <b-nav-item-dropdown right>
-                    <!-- Using 'button-content' slot -->
-                    <template slot="button-content"><em>User</em></template>
-                    <b-dropdown-item href="#">Profile</b-dropdown-item>
-                    <b-dropdown-item href="#">Sign Out</b-dropdown-item>
-                </b-nav-item-dropdown>
-            </b-navbar-nav>
-        </b-collapse>
-    </b-navbar>
+        <router-view/>
+    </div>
 </template>
 
 <script>
     export default {
-        name: "navbar"
+        name: "navbar",
+        data(){
+            return {
+
+            }
+        },
+        methods: {
+            navToNewStory: function () {
+                console.log("i a, being called")
+                this.$router.replace('new');
+            },
+            toHome: function () {
+                this.$router.replace('home');
+            }
+        }
     }
 </script>
 
 <style scoped>
+    .nav-items{
+        color: whitesmoke;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 300;
+        color: whitesmoke;
+    }
+
+    .navigation-bar{
+        background-color: #2B2B2B;
+    }
+
+    .new-btn{
+        font-family: Roboto, sans-serif;
+        font-weight: lighter;
+        background-color: #954DFF;
+        color: whitesmoke;
+        padding: 10px 40px 10px 40px;
+        border-radius: 5px;
+        outline: none;
+    }
+
+    .new-btn:hover{
+        background-color: #7f43d8;
+    }
+
+    .new-btn:active{
+        background-color: #6d39ba;
+    }
+
+
 
 </style>
