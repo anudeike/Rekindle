@@ -12,6 +12,7 @@
                 </b-navbar-nav>
 
                 <b-navbar-nav class="ml-auto">
+                    <b-nav-item><span>{{ email }}</span></b-nav-item>
                     <button class="new-btn" @click="navToNewStory">new story</button>
                 </b-navbar-nav>
             </b-collapse>
@@ -24,6 +25,7 @@
 <script>
     export default {
         name: "navbar",
+        props: ["email"],
         data(){
             return {
 
@@ -31,7 +33,7 @@
         },
         methods: {
             navToNewStory: function () {
-                console.log("i a, being called")
+                console.log("i a, being called");
                 this.$router.replace('new');
             },
             toHome: function () {
@@ -46,7 +48,6 @@
         color: whitesmoke;
         font-family: 'Roboto', sans-serif;
         font-weight: 300;
-        color: whitesmoke;
     }
 
     .navigation-bar{

@@ -76,8 +76,8 @@
 </style>
 
 <script>
-  import ImageInput from '../components/image-upload.vue'
-  import navbar from "../components/navbar";
+  import ImageInput from './image-upload.vue'
+  import navbar from "./navbar";
   export default{
     name: 'newStory',
     data () {
