@@ -1,26 +1,10 @@
 <template>
   <div class="home">
-    <b-navbar class="navigation-bar" dark>
-      <b-navbar-brand href="#">Rekindle </b-navbar-brand>
-
-      <!--not entirely sure what a b-collapse is-->
-      <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav>
-          <b-nav-item href="#"><span class="nav-items">home</span></b-nav-item>
-          <b-nav-item href="#"><span class="nav-items">browse</span></b-nav-item>
-          <b-nav-item href="#"><span class="nav-items">random</span></b-nav-item>
-        </b-navbar-nav>
-
-        <b-navbar-nav class="ml-auto">
-          <b-nav-item><span>{{ currentUserEmail }}</span></b-nav-item>
-          <button class="new-btn">new story</button>
-        </b-navbar-nav>
-      </b-collapse>
-    </b-navbar>
+    <navbar/>
     <img alt="Vue logo" src="../assets/logo.png" />
     <HelloWorld msg="Welcome to Your Vue.js App" />
 
-    <button @click="logout">Logout</button>
+    <button @click="false_logout">Logout</button>
 
   </div>
 </template>
@@ -61,6 +45,14 @@ export default {
         return "null";
       }
 
+    },
+    false_logout: function () {
+      alert("you have been logged out: {false logout function}");
+      this.$router.replace('login')
+    },
+    goToNewStory: function(){
+      alert("creating new story");
+      this.$router.replace('new');
     }
 
 

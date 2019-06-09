@@ -1,5 +1,6 @@
 <template>
   <div class="about">
+    <navbar/>
     <!--contains the main content that the user will type and submit their stuff into-->
    <b-container>
 
