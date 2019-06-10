@@ -33,7 +33,7 @@
         },
         methods: {
             navToNewStory: function () {
-                console.log("i a, being called");
+                console.log("new story is being called");
                 this.$router.replace('new');
             },
             toHome: function () {

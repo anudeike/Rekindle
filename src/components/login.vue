@@ -6,7 +6,7 @@
                 <input type="text" placeholder="email" v-model="email"><br>
                 <input type="text" placeholder="password" v-model="password"><br>
 
-                <b-button class="submit" @click="false_login">submit</b-button>
+                <b-button class="submit" @click="login">submit</b-button>
 
                 <p>Don't have an account yet? Click <router-link to="/signup">here</router-link> to create one</p>
             </div>
@@ -41,7 +41,7 @@
                 //this function is a placeholder for the actual login script
                 //it'll only return the json to the console and then go to the homepage
                 console.log(this.email + "   " + this.password);
-                this.$emit
+
                 this.$router.replace('home')
             }
         }

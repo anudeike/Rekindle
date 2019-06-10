@@ -9,29 +9,29 @@
 
        <!--this is the content side-->
        <b-col>
-         <image-input v-model="cover">
-           <div slot="activator">
-             <b-img src="https://via.placeholder.com/1080x100" size="150px" v-if="!cover" class="grey lighten-3 mb-3">
-               <span>Click to add avatar</span>
-             </b-img>
-             <!--<b-img :src="cover.imageURL" v-else class="grey lighten-3 mb-3">-->
+         <!--<image-input v-model="cover">-->
+           <!--<div slot="activator">-->
+             <!--<b-img src="https://via.placeholder.com/1080x100" size="150px" v-if="!cover" class="grey lighten-3 mb-3">-->
                <!--<span>Click to add avatar</span>-->
              <!--</b-img>-->
-             <b-button block variant="dark" v-if="cover" style="margin: 20px 0px 20px 0px;">Choose Another File</b-button>
+             <!--&lt;!&ndash;<b-img :src="cover.imageURL" v-else class="grey lighten-3 mb-3">&ndash;&gt;-->
+               <!--&lt;!&ndash;<span>Click to add avatar</span>&ndash;&gt;-->
+             <!--&lt;!&ndash;</b-img>&ndash;&gt;-->
+             <!--<b-button block variant="dark" v-if="cover" style="margin: 20px 0px 20px 0px;">Choose Another File</b-button>-->
 
 
-           </div>
-         </image-input>
-         <b-card :img-src="cover.imageURL" v-if="cover" bg-variant="dark">
+           <!--</div>-->
+         <!--</image-input>-->
+         <!--<b-card :img-src="cover.imageURL" v-if="cover" bg-variant="dark">-->
 
-           <div id="content">
+           <!--<div id="content">-->
 
-             <b-form-input id="title" size="lg" v-model="story.title" required placeholder="a creative title" ></b-form-input>
+             <!--<b-form-input id="title" size="lg" v-model="story.title" required placeholder="a creative title" ></b-form-input>-->
 
-             <b-form-textarea id="textarea" size="lg" v-model="story.content" placeholder="start your story here"></b-form-textarea>
-           </div>
-         </b-card>
-         <b-card v-else  bg-variant="dark">
+             <!--<b-form-textarea id="textarea" size="lg" v-model="story.content" placeholder="start your story here"></b-form-textarea>-->
+           <!--</div>-->
+         <!--</b-card>-->
+         <b-card bg-variant="dark">
 
           <div id="content">
 
@@ -45,6 +45,7 @@
 
      </b-row>
      <b-button @click="postToDatabase()" style="margin-top: 25px;" v-if="cover"> SUBMIT </b-button>
+     <b-button @click="postToDatabase()" style="margin-top: 25px;" v-else> SUBMIT </b-button>
    </b-container>
   </div>
 </template>
@@ -120,6 +121,8 @@
         this.$http.post('https://rekindle-f3fdc.firebaseio.com/posts.json', this.story).then(function(data){
           this.submitted = true;
         });
+
+        this.$router.replace('home');
       }
     }
 

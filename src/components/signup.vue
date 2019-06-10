@@ -7,7 +7,7 @@
                 <input type="password" v-model="password" placeholder="password"><br>
                 <!--will add some type of comfirm password but could complicate things-->
 
-                <b-button class="submit" @click="false_signup">submit</b-button>
+                <b-button class="submit" @click="signup">submit</b-button>
                 <p>already have an account? Click <router-link to="/login">here</router-link> to log in.</p>
             </div>
         </div>
@@ -25,7 +25,7 @@
             }
         },
         methods: {
-            signUp: function(){
+            signup: function(){
                 //should set up the authentication - uses a javascript promise
                 firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
                     (user) => {

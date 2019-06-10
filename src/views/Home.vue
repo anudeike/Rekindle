@@ -1,9 +1,9 @@
 <template>
   <div class="home">
     <navbar/>
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-
+    <!--<HelloWorld msg="Welcome to Your Vue.js App" />-->
+    <dashboard :email="currentUserEmail"/>
+    <b-button @click="getName">get the current user</b-button>
     <button @click="false_logout">Logout</button>
 
   </div>
@@ -13,11 +13,13 @@
 // @ is an alias to /src
 import HelloWorld from "@/components/HelloWorld.vue";
 import navbar from "../components/navbar";
+import Dashboard from "../components/dashboard";
 import firebase from 'firebase'
 
 export default {
   name: "home",
   components: {
+    Dashboard,
     HelloWorld,
     navbar
   },
@@ -54,9 +56,18 @@ export default {
       alert("creating new story");
       this.$router.replace('new');
     }
+  },
+  created() {
+    var user = firebase.auth().currentUser;
 
-
-
+    if(user != null){
+      this.currentUserEmail = user.email;
+      console.log(user.email);
+      return user.email;
+    }else{
+      console.log("null");
+      return "null";
+    }
   }
 };
 </script>
