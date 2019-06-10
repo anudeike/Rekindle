@@ -3,8 +3,6 @@
     <navbar/>
     <!--<HelloWorld msg="Welcome to Your Vue.js App" />-->
     <dashboard :email="currentUserEmail"/>
-    <b-button @click="getName">get the current user</b-button>
-    <button @click="false_logout">Logout</button>
 
   </div>
 </template>
